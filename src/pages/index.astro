@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import StarCanvas from '../components/StarCanvas';
+import Guestbook from '../components/Guestbook';
+import LastUpdated from '../components/LastUpdated';
+---
+
+<Layout title="Retro Website">
+  <div class="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-green-500 font-mono p-8">
+    <StarCanvas client:load />
+    <div class="container mx-auto flex flex-col md:flex-row gap-8">
+      <Navigation />
+      <main class="flex-1 bg-gradient-to-b from-gray-800 to-gray-700 p-6 rounded-lg shadow-lg border-2 border-gray-600">
+        <div class="bg-gradient-to-b from-gray-700 to-gray-600 p-4 mb-6 rounded-md border border-gray-500 shadow-inner">
+          <h1 class="text-3xl font-bold mb-3 animate-pulse text-green-400 shadow-text">LANGUAGES</h1>
+          <p class="text-green-300">Welcome to my language learning journey!</p>
+        </div>
+
+        <div class="overflow-hidden bg-gray-800 p-2 mb-6 rounded-md border border-gray-600 shadow-inner">
+          <div class="whitespace-nowrap animate-[marquee_20s_linear_infinite]">
+            <span class="text-green-400">
+              New Python course added! * JavaScript workshop next week! * Check out our new Rust resources! *
+            </span>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-b from-gray-700 to-gray-600 p-4 mb-6 rounded-md border border-gray-500 shadow-inner">
+          <h2 class="text-xl font-bold mb-2 text-green-400 shadow-text">Latest Update</h2>
+          <p class="text-green-300">Just started learning Python! Check out my progress in the Projects section.</p>
+        </div>
+
+        <Guestbook client:load />
+        <LastUpdated client:load />
+      </main>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .shadow-text {
+    text-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+  }
+</style>
